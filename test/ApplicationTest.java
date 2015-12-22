@@ -33,8 +33,7 @@ public class ApplicationTest {
     public void testConfig() throws Exception {
         running(fakeApplication(), new Runnable() {
             @Override public void run() {
-                play.Logger.info(Play.application().configuration().getString("systemname"));
-                assertThat(Play.application().configuration().getString("systemname")).isEqualTo("System Name Override");
+                assertThat(Play.application().configuration().getString("globalsetting")).isEqualTo("Global Settings Override");
             }
         });
 

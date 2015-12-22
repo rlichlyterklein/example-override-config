@@ -36,11 +36,20 @@ import com.typesafe.config.ConfigFactory;
 
 public class Global extends GlobalSettings {
 
+    /**
+     * Provides a simple example of overriding the play configuration via the Global Settings
+     * @param configuration
+     * @param file
+     * @param classLoader
+     * @param mode
+     * @return
+     */
 
-    @Override public Configuration onLoadConfig(Configuration configuration, File file, ClassLoader classLoader,
+    @Override
+    public Configuration onLoadConfig(Configuration configuration, File file, ClassLoader classLoader,
             Mode mode) {
         final Properties override = new Properties();
-        override.put("systemname", "System Name Override");
+        override.put("globalsetting", "Global Settings Override");
         final Config config = ConfigFactory.parseProperties(override).withFallback(configuration.underlying());
         final Configuration newConfiguration = new Configuration(config);
         return newConfiguration;

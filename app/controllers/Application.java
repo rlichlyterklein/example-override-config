@@ -13,6 +13,6 @@ public class Application extends Controller {
 
     public static Result getConfig() {
 
-        return ok(Play.application().configuration().getString("systemname"));
+        return ok(Play.application().configuration().getString("globalsetting"));
     }
 }
